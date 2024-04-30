@@ -7,7 +7,7 @@ class StringCalculator
     end
 
     numbers.each do |number|
-      raise ArgumentError, "Negative numbers not allowed: #{number.scan(/-\d+/).first }" if number.include?("-")
+      raise ArgumentError, "Negative numbers not allowed: #{number.scan(/-\d+/).join(', ') }" if number.include?("-")
     end
 
     response = numbers.map { |number| number.split(/[,\n]/).map(&:to_i).sum }
