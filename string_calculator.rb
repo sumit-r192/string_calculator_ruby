@@ -4,6 +4,7 @@ class StringCalculator
 
     numbers.each do |number|
       raise ArgumentError, "Invalid input: '#{number}'" if number.include?(",\n")
+      raise ArgumentError, "Invalid input: '#{number}'" if number.include?(",,")
     end
 
     numbers.each do |number|

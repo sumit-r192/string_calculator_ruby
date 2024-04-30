@@ -47,5 +47,10 @@ RSpec.describe StringCalculator do
       calc = StringCalculator.new
       expect { calc.add("1,-2,3,-4,5") }.to raise_error(ArgumentError, "Negative numbers not allowed: -2, -4")
     end
+
+    it "returns an error for invalid input '1,,2'" do
+      calc = StringCalculator.new
+      expect { calc.add("1,,2") }.to raise_error(ArgumentError, "Invalid input: '1,,2'")
+    end
   end
 end
