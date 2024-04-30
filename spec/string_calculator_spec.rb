@@ -32,5 +32,10 @@ RSpec.describe StringCalculator do
       calc = StringCalculator.new
       expect(calc.add("1,2\n3,4\n5")).to eq(15)
     end
+
+    it "returns an error for invalid input '1,\n'" do
+      calc = StringCalculator.new
+      expect { calc.add("1,\n") }.to raise_error(ArgumentError, "Invalid input: '1,\n'")
+    end
   end
 end
